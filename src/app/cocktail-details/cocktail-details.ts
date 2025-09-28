@@ -9,11 +9,23 @@ import { Observable } from 'rxjs';
 import { Cocktail } from '../cocktail.model';
 import { CocktailFacade } from '../cocktail.facade';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-cocktail-details',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatCardModule, MatButtonModule, MatProgressSpinnerModule],
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatChipsModule,
+    MatListModule,
+    MatDividerModule
+  ],
   templateUrl: './cocktail-details.html',
   styleUrl: './cocktail-details.css'
 })

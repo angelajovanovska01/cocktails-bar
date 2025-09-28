@@ -2,7 +2,7 @@
 .container {
   min-height: 100vh;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(163, 39, 39, 0.8)), url('https://images.unsplash.com/photo-1551024709-8f23befc6f81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(163, 39, 39, 0.8)), url('https://images.unsplash.com/photo-1551024709-8f23befc6f81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80 ');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -12,12 +12,17 @@
   padding: 2rem;
   box-sizing: border-box;
 }
+
 .cocktail-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: nowrap;
   gap: 16px;
   padding: 16px;
+  overflow-x: hidden; /* Hide horizontal scrollbar, carousel logic handles movement */
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 20px; /* Adjust as needed */
 }
+
 .content-wrapper {
   text-align: center;
   width: 100%;
@@ -85,8 +90,9 @@
 
 /* Redesigned Cocktail Card */
 .cocktail-card {
+  flex: 0 0 250px; /* Fixed width for each card, adjust as needed */
+  scroll-snap-align: start;
   position: relative;
-  width: 100%;
   max-width: 400px; /* Control card size */
   margin: 0 auto;
   background-color: #1a1a1a; /* Dark background for the card */
@@ -128,13 +134,22 @@
   margin-top: 1rem;
 }
 
-.cocktail-card .mat-stroked-button {
+/* Custom Button Styling */
+.view-details-button {
   color: white;
   border-color: rgba(255, 255, 255, 0.7);
-  transition: background-color 0.3s, border-color 0.3s;
+  background-color: transparent;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+  font-size: 1.25rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-transform: none; /* Removed uppercase for a more relaxed look */
+  letter-spacing: normal;
+  font-weight: 400; /* Lighter font weight */
 }
 
-.cocktail-card .mat-stroked-button:hover {
+.view-details-button:hover {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: white;
+  transform: scale(1.02); /* Slight scale for a subtle effect */
 }

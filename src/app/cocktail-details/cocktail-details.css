@@ -1,18 +1,83 @@
-.container {
-  padding: 20px;
+:host {
+  display: block;
+  padding: 2rem;
+  background-color: #f9f9f9;
 }
 
-.cocktail-detail-card {
-  width: 50%;
-  height: 100%;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.details-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  
+}
+
+.image-container {
+  flex: 1 1 400px;
+}
+
+.cocktail-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.info-container {
+  flex: 2 1 500px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: transform 0.2s;
-  position: center;
+  gap: 1.5rem;
 }
 
-.cocktail-card:hover {
-  transform: scale(1.05);
+.cocktail-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.ingredient-name {
+  font-weight: 500;
+}
+
+.ingredient-measure {
+  margin-left: 0.5rem; /* Add some space between name and measure */
+  color: #666;
+}
+
+.instructions {
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+  .details-container {
+    flex-direction: column;
+  }
+
+  .cocktail-title {
+    font-size: 2.5rem;
+  }
 }
