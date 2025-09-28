@@ -1,16 +1,26 @@
-<div class="container">
-  <mat-form-field>
-    <input
-      matInput
-      placeholder="Search by first letter"
-      [(ngModel)]="searchLetter"
-      (keyup.enter)="searchCocktails()"
-    />
-  </mat-form-field>
+<mat-toolbar color="primary">
+  <span>Cocktail Bar</span>
+</mat-toolbar>
 
-  <mat-grid-list cols="4" rowHeight="350px" gutterSize="16px">
-    <mat-grid-tile *ngFor="let cocktail of cocktails">
-      <a [routerLink]="['/cocktail', cocktail.idDrink]">
+<div class="container">
+  <div class="search-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Search by first letter</mat-label>
+      <input
+        matInput
+        [(ngModel)]="searchLetter"
+        (keyup.enter)="searchCocktails()"
+      />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="searchCocktails()">
+      Search
+    </button>
+  </div>
+
+  <div *ngIf="cocktails && cocktails.length > 0; else noCocktails">
+    <mat-grid-list cols="4" rowHeight="350px" gutterSize="16px">
+      <mat-grid-tile *ngFor="let cocktail of cocktails">
         <mat-card class="cocktail-card">
           <mat-card-header>
             <mat-card-title>{{ cocktail.strDrink }}</mat-card-title>
@@ -20,8 +30,17 @@
             [src]="cocktail.strDrinkThumb"
             [alt]="cocktail.strDrink"
           />
+          <mat-card-actions>
+            <button mat-button [routerLink]="['/cocktail', cocktail.idDrink]">
+              View Details
+            </button>
+          </mat-card-actions>
         </mat-card>
-      </a>
-    </mat-grid-tile>
-  </mat-grid-list>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <ng-template #noCocktails>
+    <p class="no-cocktails-message">No cocktails found. Try a different search!</p>
+  </ng-template>
 </div>

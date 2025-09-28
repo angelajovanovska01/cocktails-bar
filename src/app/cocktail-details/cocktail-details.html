@@ -1,12 +1,29 @@
-<div *ngIf="cocktail">
-  <h2>{{ cocktail.strDrink }}</h2>
-  <img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink" width="300">
-  <h3>Instructions</h3>
-  <p>{{ cocktail.strInstructions }}</p>
-  <h3>Ingredients</h3>
-  <ul>
-    <li *ngFor="let ingredient of getIngredients(cocktail)">
-      {{ ingredient.measure }} {{ ingredient.name }}
-    </li>
-  </ul>
+<mat-toolbar color="primary">
+  <span>Cocktail Details</span>
+</mat-toolbar>
+
+<div class="container">
+  <mat-card *ngIf="cocktail" class="cocktail-detail-card">
+    <mat-card-header>
+      <mat-card-title>{{ cocktail.strDrink }}</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      [src]="cocktail.strDrinkThumb"
+      [alt]="cocktail.strDrink"
+    />
+    <mat-card-content>
+      <h3>Instructions:</h3>
+      <p>{{ cocktail.strInstructions }}</p>
+      <h3>Ingredients:</h3>
+      <ul>
+        <li *ngFor="let ingredient of getIngredients(cocktail)">
+          {{ ingredient.measure }} {{ ingredient.name }}
+        </li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button routerLink="/all">Back to List</button>
+    </mat-card-actions>
+  </mat-card>
 </div>

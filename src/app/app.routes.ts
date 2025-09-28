@@ -12,5 +12,5 @@ export const routes: Routes = [
   { path: 'filter-by-alcoholic/:alcoholic', component: CocktailDisplay },
   { path: 'filter-by-category/:category', component: CocktailDisplay },
   { path: 'filter-by-glass/:glass', component: CocktailDisplay },
-  { path: '', redirectTo: 'random-cocktail', pathMatch: 'full' },
+  { path: '', redirectTo: 'all', pathMatch: 'full' },
 ];
