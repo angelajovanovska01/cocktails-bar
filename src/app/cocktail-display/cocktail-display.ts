@@ -11,7 +11,6 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [
     CommonModule,
-    NgFor,
     RouterModule,
     MatCardModule,
     MatButtonModule,

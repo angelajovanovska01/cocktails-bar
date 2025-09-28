@@ -5,9 +5,9 @@
     <p>Loading...</p>
   </div>
 
-  <div *ngIf="!isLoading" class="cocktail-grid">
-    <app-cocktail-display [cocktails]="(cocktails$ | async) ?? []"></app-cocktail-display>
-  </div>
+<div class="results-container" *ngIf="(cocktails$ | async)?.length">
+  <app-cocktail-display [cocktails]="(cocktails$ | async) ?? []"></app-cocktail-display>
+</div>
 
   <div class="mood-mixologist-container">
 </div>

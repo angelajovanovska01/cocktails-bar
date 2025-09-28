@@ -26,9 +26,9 @@ export class CocktailFacade {
     return this.loading$.asObservable();
   }
 
-  loadRandomCocktails(count: number): void {
+  loadCocktails(count: number): void {
     this.loading$.next(true);
-    this.cocktailService.getMultipleRandomCocktails(count).pipe(
+    this.cocktailService.getAllCocktails().pipe(
       tap(() => this.loading$.next(false))
     ).subscribe(cocktails => {
       this.cocktails$.next(cocktails);

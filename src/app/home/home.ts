@@ -28,6 +28,6 @@ export class HomeComponent implements OnInit {
   }
 
   loadMore(): void {
-    this.cocktailFacade.loadRandomCocktails(10);
+    this.cocktailFacade.loadCocktails(10);
   }
 }
