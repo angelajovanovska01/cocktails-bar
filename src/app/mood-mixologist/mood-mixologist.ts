@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MoodSelectorComponent } from '../mood-selector/mood-selector';
 import { CocktailDisplay } from '../cocktail-display/cocktail-display';
+import { moodMap } from '../mood-config'; // Import moodMap
 
 @Component({
   selector: 'app-mood-mixologist',
@@ -16,12 +17,15 @@ import { CocktailDisplay } from '../cocktail-display/cocktail-display';
 export class MoodMixologist {
   cocktails$: Observable<Cocktail[]> = of([]);
   isLoading = false;
+  selectedMoodKey: string | null = null; 
+  moodMap = moodMap; 
 
   constructor(private cocktailService: CocktailService) {}
 
-  onMoodSelected(mood: string) {
+  onMoodSelected(moodKey: string) {
     this.isLoading = true;
-    this.cocktails$ = this.cocktailService.getCocktailsForMood(mood);
+    this.selectedMoodKey = moodKey; 
+    this.cocktails$ = this.cocktailService.getCocktailsForMood(moodKey);
     this.cocktails$.subscribe(() => this.isLoading = false);
   }
 }

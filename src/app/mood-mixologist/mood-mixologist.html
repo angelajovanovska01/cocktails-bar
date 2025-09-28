@@ -1,14 +1,17 @@
 <div class="mood-mixologist-container">
   <app-mood-selector (moodSelected)="onMoodSelected($event)"></app-mood-selector>
 
-  <div *ngIf="isLoading" class="loading-spinner">
-    <p>Loading...</p>
+  <div *ngIf="selectedMoodKey && moodMap[selectedMoodKey]" class="mood-summary">
+    <h2>{{ moodMap[selectedMoodKey].emoji }} {{ moodMap[selectedMoodKey].label }} Cocktails</h2>
+    <p>Here are some {{ moodMap[selectedMoodKey].label }} cocktails for you!</p>
   </div>
 
-<div class="results-container" *ngIf="(cocktails$ | async)?.length">
-  <app-cocktail-display [cocktails]="(cocktails$ | async) ?? []"></app-cocktail-display>
-</div>
+  <div *ngIf="isLoading" class="loading-indicator">
+    <p>Loading cocktails...</p>
+  </div>
+  <div class="results-container" *ngIf="(cocktails$ | async)?.length">
+    <app-cocktail-display [cocktails]="(cocktails$ | async) ?? []"></app-cocktail-display>
+  </div>
 
-  <div class="mood-mixologist-container">
-</div>
+  <div class="mood-mixologist-container"></div>
 </div>
