@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, CocktailDisplay, MoodMixologist, RouterModule],
   templateUrl: './home.html',
-  styleUrls: ['./home.css']
+  styleUrls: ['./home.css'],
 })
 export class HomeComponent implements OnInit {
   cocktails$: Observable<Cocktail[]>;

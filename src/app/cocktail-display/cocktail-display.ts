@@ -9,13 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-cocktail-display',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-  ],
+  imports: [CommonModule, RouterModule, MatCardModule, MatButtonModule, MatIconModule],
   templateUrl: './cocktail-display.html',
   styleUrls: ['./cocktail-display.css'],
 })

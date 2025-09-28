@@ -12,6 +12,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-cocktail-details',
@@ -24,10 +25,11 @@ import { MatDividerModule } from '@angular/material/divider';
     MatProgressSpinnerModule,
     MatChipsModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatIconModule,
   ],
   templateUrl: './cocktail-details.html',
-  styleUrl: './cocktail-details.css'
+  styleUrl: './cocktail-details.css',
 })
 export class CocktailDetails implements OnInit {
   cocktail$: Observable<Cocktail | null>;
@@ -49,7 +51,7 @@ export class CocktailDetails implements OnInit {
     }
   }
 
-  getIngredients(cocktail: Cocktail): { name: string, measure: string }[] {
+  getIngredients(cocktail: Cocktail): { name: string; measure: string }[] {
     const ingredients = [];
     for (let i = 1; i <= 15; i++) {
       const ingredient = cocktail[('strIngredient' + i) as keyof Cocktail];

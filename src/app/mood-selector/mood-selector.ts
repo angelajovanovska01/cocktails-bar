@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './mood-selector.html',
-  styleUrls: ['./mood-selector.css']
+  styleUrls: ['./mood-selector.css'],
 })
 export class MoodSelectorComponent {
   @Output() moodSelected = new EventEmitter<string>();

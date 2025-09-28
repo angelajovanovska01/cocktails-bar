@@ -12,20 +12,20 @@ import { moodMap } from '../mood-config'; // Import moodMap
   standalone: true,
   imports: [CommonModule, MoodSelectorComponent, CocktailDisplay],
   templateUrl: './mood-mixologist.html',
-  styleUrls: ['./mood-mixologist.css']
+  styleUrls: ['./mood-mixologist.css'],
 })
 export class MoodMixologist {
   cocktails$: Observable<Cocktail[]> = of([]);
   isLoading = false;
-  selectedMoodKey: string | null = null; 
-  moodMap = moodMap; 
+  selectedMoodKey: string | null = null;
+  moodMap = moodMap;
 
   constructor(private cocktailService: CocktailService) {}
 
   onMoodSelected(moodKey: string) {
     this.isLoading = true;
-    this.selectedMoodKey = moodKey; 
+    this.selectedMoodKey = moodKey;
     this.cocktails$ = this.cocktailService.getCocktailsForMood(moodKey);
-    this.cocktails$.subscribe(() => this.isLoading = false);
+    this.cocktails$.subscribe(() => (this.isLoading = false));
   }
 }

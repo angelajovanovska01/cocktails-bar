@@ -81,3 +81,32 @@
     font-size: 2.5rem;
   }
 }
+
+.back-to-list-button {
+  background-color: #a32727; /* Red accent color */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  transform: translateY(-2px);
+}
+
+.ingredients-form-field {
+  border: 1px solid #ccc; 
+  border-radius: 8px;
+  padding: 0.5rem 1rem; 
+  background-color: #fdfdfd; 
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.0rem;
+}
+
+.ingredients-list mat-list-item {
+  border-bottom: 1px solid #eee; /* Lighter separator */
+  padding: 0.75rem 0; /* More padding for list items */
+}
+
+.ingredients-list mat-list-item:last-child {
+  border-bottom: none;
+}
+

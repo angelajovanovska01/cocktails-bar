@@ -6,7 +6,7 @@
   <ng-template #content>
     <div *ngIf="cocktail$ | async as cocktail" class="details-container">
       <div class="image-container">
-        <img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink" class="cocktail-image">
+        <img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink" class="cocktail-image" />
       </div>
 
       <div class="info-container">
@@ -22,20 +22,22 @@
 
         <mat-divider></mat-divider>
 
-        <h5>Ingredients</h5>
-        <mat-list role="list">
-          <mat-list-item *ngFor="let ingredient of getIngredients(cocktail)" role="listitem">
-            <span class="ingredient-name">{{ ingredient.name }}</span>
-            <span class="ingredient-measure">{{ ingredient.measure }}</span>
-          </mat-list-item>
-        </mat-list>
+        <h2 class="ingredients-title">Ingredients</h2>
+        <div class="ingredients-form-field">
+          <mat-list role="list" class="ingredients-list">
+            <mat-list-item *ngFor="let ingredient of getIngredients(cocktail)" role="listitem">
+              <span class="ingredient-name">{{ ingredient.name }}</span>
+              <span class="ingredient-measure">{{ ingredient.measure }}</span>
+            </mat-list-item>
+          </mat-list>
+        </div>
 
         <mat-divider></mat-divider>
 
         <h2>Instructions</h2>
         <p class="instructions">{{ cocktail.strInstructions }}</p>
 
-        <button mat-stroked-button color="primary" (click)="goBack()">
+        <button mat-flat-button color="primary" (click)="goBack()" class="back-to-list-button">
           Back to list
         </button>
       </div>
