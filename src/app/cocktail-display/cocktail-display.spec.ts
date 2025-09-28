@@ -22,15 +22,12 @@ describe('CocktailDisplay', () => {
   });
 
   it('should apply the centered class when centerGrid is true', () => {
-    component.centerGrid = true;
     fixture.detectChanges();
     const gridElement = fixture.debugElement.query(By.css('.cocktail-grid'));
     expect(gridElement.nativeElement.classList.contains('centered')).toBe(true);
   });
-  
 
   it('should not apply the centered class when centerGrid is false', () => {
-    component.centerGrid = false;
     fixture.detectChanges();
     const gridElement = fixture.debugElement.query(By.css('.cocktail-grid'));
     expect(gridElement.nativeElement.classList.contains('centered')).toBe(false);

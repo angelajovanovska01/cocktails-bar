@@ -83,7 +83,7 @@
 }
 
 .back-to-list-button {
-  background-color: #a32727; /* Red accent color */
+  background-color: #a32727; 
   color: white;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
@@ -102,8 +102,8 @@
 }
 
 .ingredients-list mat-list-item {
-  border-bottom: 1px solid #eee; /* Lighter separator */
-  padding: 0.75rem 0; /* More padding for list items */
+  border-bottom: 1px solid #eee; 
+  padding: 0.75rem 0; 
 }
 
 .ingredients-list mat-list-item:last-child {

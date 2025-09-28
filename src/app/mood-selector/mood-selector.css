@@ -20,7 +20,7 @@
 
 .mood-button:hover {
   transform: translateY(-5px);
-  border-color: #a855f7; /* Purple-500 */
+  border-color: #a855f7; 
 }
 
 .mood-emoji {

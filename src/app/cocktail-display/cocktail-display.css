@@ -1,4 +1,3 @@
-/* General Container Styling */
 .container {
   min-height: 100vh;
   width: 100%;
@@ -16,19 +15,21 @@
 
 .cocktail-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 6 columns, responsive */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
   gap: 16px;
   padding: 16px;}
 
 .cocktail-card {
   position: relative;
-  width: 100%; /* Ensure card takes full width of its grid cell */
-  max-width: 400px; /* Limit maximum width of the card */
+  width: 100%; 
+  max-width: 400px; 
   margin: 0 auto;
-  background-color: #1a1a1a; /* Dark background for the card */
+  background-color: #1a1a1a; 
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+
 }
 
 .content-wrapper {
@@ -38,7 +39,7 @@
 
 .cocktail-card mat-card-image {
   width: 100%;
-  height: 300px; /* Adjusted height for better scaling */
+  height: 300px; 
   object-fit: cover;
   transition: transform 0.4s ease;
 }
@@ -69,7 +70,6 @@
   margin-top: 1rem;
 }
 
-/* Custom Button Styling */
 .view-details-button {
   color: white;
   border-color: rgba(255, 255, 255, 0.7);
@@ -78,15 +78,15 @@
   font-size: 1.25rem;
   padding: 0.75rem 1.5rem;
   border-radius: 5px;
-  text-transform: none; /* Removed uppercase for a more relaxed look */
+  text-transform: none; 
   letter-spacing: normal;
-  font-weight: 400; /* Lighter font weight */
+  font-weight: 400; 
 }
 
 .view-details-button:hover {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: white;
-  transform: scale(1.02); /* Slight scale for a subtle effect */
+  transform: scale(1.02); 
 }
 
 .load-more-container {
@@ -100,7 +100,7 @@
   padding: 1rem 2rem;
   font-size: 1.2rem;
   border-radius: 8px;
-  background-color: #a32727; /* A shade of red */
+  background-color: #a32727; 
   color: white;
   border: none;
   cursor: pointer;
@@ -108,5 +108,9 @@
 }
 
 .load-more-container button:hover {
-  background-color: #8a1f1f; /* Darker shade on hover */
+  background-color: #8a1f1f; 
+}
+
+.mat-card-image {
+  cursor: pointer;
 }

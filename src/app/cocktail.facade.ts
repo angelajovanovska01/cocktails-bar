@@ -25,6 +25,12 @@ export class CocktailFacade {
   get loading(): Observable<boolean> {
     return this.loading$.asObservable();
   }
+  private shuffleArray(array: Cocktail[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
 
   loadCocktails(count: number): void {
     this.loading$.next(true);
@@ -32,6 +38,7 @@ export class CocktailFacade {
       .getAllCocktails()
       .pipe(tap(() => this.loading$.next(false)))
       .subscribe((cocktails) => {
+        this.shuffleArray(cocktails);
         this.cocktails$.next(cocktails);
       });
   }
