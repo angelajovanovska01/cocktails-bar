@@ -21,4 +21,18 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class CocktailDisplay {
   @Input() cocktails!: Cocktail[];
+
+  displayedCocktailsCount: number = 12; // Initially display 2 rows (6 columns * 2 rows)
+
+  get displayedCocktails(): Cocktail[] {
+    return this.cocktails.slice(0, this.displayedCocktailsCount);
+  }
+
+  loadMoreCocktails(): void {
+    this.displayedCocktailsCount += 12; // Load 2 more rows
+  }
+
+  hasMoreCocktails(): boolean {
+    return this.displayedCocktailsCount < this.cocktails.length;
+  }
 }

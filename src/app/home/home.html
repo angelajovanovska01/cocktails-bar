@@ -9,7 +9,6 @@
     <div *ngIf="loading$ | async" class="loading-indicator">Loading cocktails...</div>
     <div *ngIf="!(loading$ | async) && (cocktails$ | async)?.length === 0" class="no-cocktails-message">No cocktails found. Try again!</div>
     <app-cocktail-display [cocktails]="(cocktails$ | async) ?? []"></app-cocktail-display>
-    <button mat-raised-button color="primary" (click)="loadMore()">Load More</button>
     <router-outlet></router-outlet>
   </section>
 

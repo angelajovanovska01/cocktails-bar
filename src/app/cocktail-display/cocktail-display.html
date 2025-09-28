@@ -1,13 +1,16 @@
 <div class="cocktail-grid">
-  <mat-card class="cocktail-card" *ngFor="let cocktail of cocktails">
-    <img mat-card-image [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink">
+  <mat-card class="cocktail-card" *ngFor="let cocktail of displayedCocktails">
+    <img mat-card-image [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink" [routerLink]="['/cocktail', cocktail.idDrink]">
     <div class="card-overlay">
       <mat-card-header>
         <mat-card-title>{{ cocktail.strDrink }}</mat-card-title>
       </mat-card-header>
-      <mat-card-actions>
-        <a mat-stroked-button [routerLink]="['/cocktail', cocktail.idDrink]" class="view-details-button">View Details</a>
-      </mat-card-actions>
     </div>
   </mat-card>
+</div>
+
+<div class="load-more-container">
+  <button mat-raised-button color="primary" (click)="loadMoreCocktails()" *ngIf="hasMoreCocktails()">
+    Load More
+  </button>
 </div>
