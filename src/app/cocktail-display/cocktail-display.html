@@ -1,0 +1,7 @@
+<div *ngIf="cocktails && cocktails.length > 0">
+  <h2>Cocktails</h2>
+  <div *ngFor="let cocktail of cocktails" style="margin-bottom: 20px;">
+    <h3>{{ cocktail.strDrink }}</h3>
+    <img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink" width="150">
+  </div>
+</div>
