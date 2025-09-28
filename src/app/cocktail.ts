@@ -37,4 +37,8 @@ export class CocktailService {
   filterCocktailsByGlass(glass: string): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}filter.php?g=${glass}`);
   }
+
+  getCocktailById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}lookup.php?i=${id}`);
+  }
 }

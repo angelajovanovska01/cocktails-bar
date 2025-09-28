@@ -1,7 +1,27 @@
-<div *ngIf="cocktails && cocktails.length > 0">
-  <h2>Cocktails</h2>
-  <div *ngFor="let cocktail of cocktails" style="margin-bottom: 20px;">
-    <h3>{{ cocktail.strDrink }}</h3>
-    <img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink" width="150">
-  </div>
+<div class="container">
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Search by first letter"
+      [(ngModel)]="searchLetter"
+      (keyup.enter)="searchCocktails()"
+    />
+  </mat-form-field>
+
+  <mat-grid-list cols="4" rowHeight="350px" gutterSize="16px">
+    <mat-grid-tile *ngFor="let cocktail of cocktails">
+      <a [routerLink]="['/cocktail', cocktail.idDrink]">
+        <mat-card class="cocktail-card">
+          <mat-card-header>
+            <mat-card-title>{{ cocktail.strDrink }}</mat-card-title>
+          </mat-card-header>
+          <img
+            mat-card-image
+            [src]="cocktail.strDrinkThumb"
+            [alt]="cocktail.strDrink"
+          />
+        </mat-card>
+      </a>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
