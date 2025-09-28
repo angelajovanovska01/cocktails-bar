@@ -14,8 +14,13 @@ export class MoodSelectorComponent {
 
   moods = Object.keys(moodMap);
   moodMap = moodMap;
+  isLoading = false;
 
   selectMood(mood: string) {
-    this.moodSelected.emit(mood);
+    this.isLoading = true;
+    setTimeout(() => {
+      this.moodSelected.emit(mood);
+      this.isLoading = false;
+    }, 500); // Simulate a delay
   }
 }

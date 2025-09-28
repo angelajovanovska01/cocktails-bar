@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 describe('CocktailDetails', () => {
   let component: CocktailDetails;
@@ -33,6 +34,44 @@ describe('CocktailDetails', () => {
     strMeasure2: '4 oz',
     strIngredient3: null,
     strMeasure3: null,
+    strDrinkAlternate: null,
+    strTags: null,
+    strVideo: null,
+    strIBA: null,
+    strInstructionsES: null,
+    strInstructionsDE: null,
+    strInstructionsFR: null,
+    strInstructionsIT: null,
+    'strInstructionsZH-HANS': null,
+    'strInstructionsZH-HANT': null,
+    strIngredient4: null,
+    strIngredient5: null,
+    strIngredient6: null,
+    strIngredient7: null,
+    strIngredient8: null,
+    strIngredient9: null,
+    strIngredient10: null,
+    strIngredient11: null,
+    strIngredient12: null,
+    strIngredient13: null,
+    strIngredient14: null,
+    strIngredient15: null,
+    strMeasure4: null,
+    strMeasure5: null,
+    strMeasure6: null,
+    strMeasure7: null,
+    strMeasure8: null,
+    strMeasure9: null,
+    strMeasure10: null,
+    strMeasure11: null,
+    strMeasure12: null,
+    strMeasure13: null,
+    strMeasure14: null,
+    strMeasure15: null,
+    strImageSource: null,
+    strImageAttribution: null,
+    strCreativeCommonsConfirmed: '',
+    dateModified: ''
   };
 
   beforeEach(async () => {
@@ -45,12 +84,7 @@ describe('CocktailDetails', () => {
     mockActivatedRoute = {
       snapshot: {
         paramMap: {
-          get: (key: string) => {
-            if (key === 'id') {
-              return '12345';
-            }
-            return null;
-          },
+          get: jasmine.createSpy('get').and.returnValue('12345'),
         },
       },
     };
@@ -61,13 +95,14 @@ describe('CocktailDetails', () => {
 
     await TestBed.configureTestingModule({
       imports: [
-        CocktailDetails, // Import the standalone component
+        CocktailDetails, 
         MatProgressSpinnerModule,
         MatButtonModule,
         MatIconModule,
         MatChipsModule,
         MatListModule,
         MatDividerModule,
+        MatFormFieldModule,
       ],
       providers: [
         { provide: CocktailFacade, useValue: mockCocktailFacade },
@@ -113,8 +148,11 @@ describe('CocktailDetails', () => {
     expect(imageElement.src).toContain('test.jpg');
     expect(imageElement.alt).toContain('Test Cocktail');
 
-    const categoryChip: HTMLElement = fixture.nativeElement.querySelector('mat-chip');
-    expect(categoryChip.textContent).toContain('Ordinary Drink');
+    const categoryChips: NodeListOf<HTMLElement> = fixture.nativeElement.querySelectorAll('mat-chip-listbox mat-chip');
+    expect(categoryChips.length).toBe(3);
+    expect(categoryChips[0].textContent).toContain('Ordinary Drink');
+    expect(categoryChips[1].textContent).toContain('Alcoholic');
+    expect(categoryChips[2].textContent).toContain('Highball glass');
 
     const ingredientItems = fixture.nativeElement.querySelectorAll('.ingredients-list mat-list-item');
     expect(ingredientItems.length).toBe(2);

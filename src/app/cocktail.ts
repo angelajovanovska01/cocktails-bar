@@ -32,22 +32,8 @@ export class CocktailService {
     );
   }
 
-  listCocktailsByFirstLetter(letter: string): Observable<Cocktail[]> {
-    return this.http.get<ApiResponse>(`${this.baseUrl}search.php?f=${letter}`).pipe(
-      map((response) => response.drinks),
-      catchError(this.handleError)
-    );
-  }
-
   filterCocktailsByIngredient(ingredient: string): Observable<Cocktail[]> {
     return this.http.get<ApiResponse>(`${this.baseUrl}filter.php?i=${ingredient}`).pipe(
-      map((response) => response.drinks),
-      catchError(this.handleError)
-    );
-  }
-
-  filterCocktailsByAlcoholic(alcoholic: string): Observable<Cocktail[]> {
-    return this.http.get<ApiResponse>(`${this.baseUrl}filter.php?a=${alcoholic}`).pipe(
       map((response) => response.drinks),
       catchError(this.handleError)
     );
@@ -59,14 +45,7 @@ export class CocktailService {
       catchError(this.handleError)
     );
   }
-
-  filterCocktailsByGlass(glass: string): Observable<Cocktail[]> {
-    return this.http.get<ApiResponse>(`${this.baseUrl}filter.php?g=${glass}`).pipe(
-      map((response) => response.drinks),
-      catchError(this.handleError)
-    );
-  }
-
+  
   getCocktailById(id: string): Observable<Cocktail> {
     if (this.cache.has(id)) {
       return of(this.cache.get(id)!);
