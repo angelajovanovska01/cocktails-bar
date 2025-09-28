@@ -1,0 +1,21 @@
+<div class="home-container">
+  <section class="hero">
+    <h1>Welcome to the Cocktails Bar</h1>
+    <p>Find the perfect cocktail for any occasion.</p>
+  </section>
+
+  <section class="cocktail-grid-section">
+    <h2>Featured Cocktails</h2>
+    <div *ngIf="loading$ | async" class="loading-indicator">Loading cocktails...</div>
+    <div *ngIf="!(loading$ | async) && (cocktails$ | async)?.length === 0" class="no-cocktails-message">No cocktails found. Try again!</div>
+    <app-cocktail-display [cocktails]="(cocktails$ | async) ?? []"></app-cocktail-display>
+    <button mat-raised-button color="primary" (click)="loadMore()">Load More</button>
+    <router-outlet></router-outlet>
+  </section>
+
+  <section class="mood-mixologist">
+    <h2>What is your mood</h2>
+    <p>Discover cocktails based on your mood. Tell us for what vibe are you into. </p>
+    <app-mood-mixologist></app-mood-mixologist>
+  </section>
+</div>

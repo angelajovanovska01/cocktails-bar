@@ -1,0 +1,14 @@
+<div class="mood-mixologist-container">
+  <app-mood-selector (moodSelected)="onMoodSelected($event)"></app-mood-selector>
+
+  <div *ngIf="isLoading" class="loading-spinner">
+    <p>Loading...</p>
+  </div>
+
+  <div *ngIf="!isLoading" class="cocktail-grid">
+    <app-cocktail-display [cocktails]="(cocktails$ | async) ?? []"></app-cocktail-display>
+  </div>
+
+  <div class="mood-mixologist-container">
+</div>
+</div>

@@ -1,46 +1,13 @@
-<mat-toolbar color="primary">
-  <span>Cocktail Bar</span>
-</mat-toolbar>
-
-<div class="container">
-  <div class="search-container">
-    <mat-form-field appearance="fill">
-      <mat-label>Search by first letter</mat-label>
-      <input
-        matInput
-        [(ngModel)]="searchLetter"
-        (keyup.enter)="searchCocktails()"
-      />
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="searchCocktails()">
-      Search
-    </button>
-  </div>
-
-  <div *ngIf="cocktails && cocktails.length > 0; else noCocktails">
-    <mat-grid-list cols="4" rowHeight="350px" gutterSize="16px">
-      <mat-grid-tile *ngFor="let cocktail of cocktails">
-        <mat-card class="cocktail-card">
-          <mat-card-header>
-            <mat-card-title>{{ cocktail.strDrink }}</mat-card-title>
-          </mat-card-header>
-          <img
-            mat-card-image
-            [src]="cocktail.strDrinkThumb"
-            [alt]="cocktail.strDrink"
-          />
-          <mat-card-actions>
-            <button mat-button [routerLink]="['/cocktail', cocktail.idDrink]">
-              View Details
-            </button>
-          </mat-card-actions>
-        </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </div>
-
-  <ng-template #noCocktails>
-    <p class="no-cocktails-message">No cocktails found. Try a different search!</p>
-  </ng-template>
+<div class="cocktail-grid">
+  <mat-card class="cocktail-card" *ngFor="let cocktail of cocktails">
+    <img mat-card-image [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink">
+    <div class="card-overlay">
+      <mat-card-header>
+        <mat-card-title>{{ cocktail.strDrink }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <a mat-stroked-button [routerLink]="['/cocktail', cocktail.idDrink]">View Details</a>
+      </mat-card-actions>
+    </div>
+  </mat-card>
 </div>

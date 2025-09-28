@@ -1,0 +1,6 @@
+<div class="mood-selector-container">
+  <button *ngFor="let mood of moods" (click)="selectMood(mood)" class="mood-button" [attr.aria-label]="moodMap[mood].label">
+    <span class="mood-emoji">{{ moodMap[mood].emoji }}</span>
+    <span class="mood-label">{{ moodMap[mood].label }}</span>
+  </button>
+</div>
